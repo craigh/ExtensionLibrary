@@ -35,39 +35,10 @@
             },
             "uniqueItems": true
         },
-        "autoload": {
-            "type": "object",
-            "description": "Description of how the package can be autoloaded.",
-            "properties": {
-                "psr-0": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "psr-4": {
-                    "type": "object",
-                    "additionalProperties": true
-                }
-            }
-        },
         "require": {
             "type": "object",
             "additionalProperties": true
-        },
-        "extra": {
-            "type": "object",
-            "properties": {
-                "zikula": {
-                    "type": "object",
-                    "properties": {
-                        "class": {"type": "string"}
-                    },
-                    "required": ["class"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["zikula"],
-            "additionalProperties": true
         }
     },
-    "required": ["name", "description", "type", "license", "authors", "autoload", "require", "extra"]
+    "required": ["name", "description", "type", "license", "authors", "require"]
 }

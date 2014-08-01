@@ -14,20 +14,22 @@ just a JavaScript object literal.
 Fields
 ======
 
-**ALL fields are required.**
+**ALL fields are required for core 1.4-only modules. Modules compatible with core 1.3 should omit `autoload` and `extra` .**
 
  - [name](#name)
  - [description](#description) *
  - [type](#type) *
  - [license](#license) *
  - [authors](#authors) *
- - [autoload](#autoload)
  - [require](#require)
- - [extra](#extra)
+ - [autoload](#autoload) **
+ - [extra](#extra) **
 
 Additional optional fields are allowed but not validated. Please see the entire spec at [the composer website](https://getcomposer.org/doc/04-schema.md#properties).
 
 *utilized by ExtensionLibrary
+
+**required for core 1.4-only modules
 
 <a name="name"></a>Name
 ------
@@ -56,22 +58,22 @@ use the standardized identifier acronym for the license as defined by [Software 
 An array of people that have contributed to the project in some way. The array should have at least one person listed
 and that person's **name** is required. (The role of "owner" is suggested.) See [People Fields](#people-fields)
 
-<a name="autoload"></a>Autoload
+<a name="require"></a>Require
+------
+
+This can be used to require vendor projects in your extension. It must contain at least a requirement for `"php": ">5.3.3"`
+
+<a name="autoload"></a>Autoload**
 ------
 
 A description of how the package can be autoloaded. The object should have only **one** property: either `psr-0` or `psr-4`.
 The property must be an object and contain a hash of namespaces (keys) and the PSR-0 (or PSR-4) directories they can map
 to (values, can be arrays of paths) by the autoloader.
 
-<a name="require"></a>Require
+<a name="extra"></a>Extra**
 ------
 
-This can be used to require vendor projects in your extension. It must contain at least a requirement for `"php": ">5.3.3"`
-
-<a name="extra"></a>Extra
-------
-
-Must contain one property named `zikula`. This property must be an object with one property named `class`. The value for
+**You MUST omit this field if your module is compatible with core-1.3.** Must contain one property named `zikula`. This property must be an object with one property named `class`. The value for
 this property must be a string value of the escaped classname for the extension class.
 
 
